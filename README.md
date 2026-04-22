@@ -52,3 +52,23 @@ Além disso, para atender ao requisito da atividade, também foi utilizado um al
 - E-mail: **josecarvalhoneto3@gmail.com**
 
 ---
+## Estrutura do Projeto
+
+A organização do projeto foi definida para separar os códigos principais, os testes automáticos, os relatórios e os slides da apresentação.
+
+```text
+Aluno_ws_AA_RR_2025/
+│
+├── codigos/
+│   ├── torre_hanoi.c
+│   ├── testes_automaticos_torre_hanoi.c
+│   ├── merge_sort_comparacao.c
+│   └── testes_automaticos_merge_sort.c
+│
+├── relatorio/
+│   └── relatorio_seminario_torre_hanoi.pdf
+│
+├── slides/
+│   └── seminario_torre_hanoi.pptx
+│
+└── README.md
