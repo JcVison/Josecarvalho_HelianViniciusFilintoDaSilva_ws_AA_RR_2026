@@ -67,32 +67,49 @@ int main() {
     printf("Quantas vezes deseja repetir o teste para calcular a media? ");
     if (scanf("%d", &repeticoes) != 1) return 1;
 
-    printf("\nProcessando testes... Aguarde.\n");
+    // ALOCAÇÃO DO VETOR DE HISTÓRICO PARA ARMAZENAR TEMPOS INDIVIDUAIS
+    double *historico = (double *)malloc(repeticoes * sizeof(double));
+    if (historico == NULL) {
+        printf("Erro ao alocar memoria para o historico.\n");
+        return 1;
+    }
 
-    for (int i = 1; i <= repeticoes; i++) {
-        // Alocação e preenchimento fora da medição para não "sujar" o tempo do MergeSort
+    printf("\nProcessando testes silenciosamente... Aguarde.\n");
+
+    for (int i = 0; i < repeticoes; i++) {
+        // Alocação e preenchimento fora da medição
         int *arr = (int *)malloc(n * sizeof(int));
         for (int j = 0; j < n; j++) {
             arr[j] = rand() % 10000;
         }
 
-        // --- INÍCIO DA MEDIÇÃO ---
+        // --- INÍCIO DA MEDIÇÃO PURA ---
         QueryPerformanceCounter(&t1);
         mergeSort(arr, 0, n - 1);
         QueryPerformanceCounter(&t2);
         // --- FIM DA MEDIÇÃO ---
 
         double tempo_micro = (double)(t2.QuadPart - t1.QuadPart) * 1000000.0 / frequencia.QuadPart;
+        
+        // SALVA NO HISTÓRICO (Operação de memória ultra rápida)
+        historico[i] = tempo_micro;
         tempo_total += tempo_micro;
         
         free(arr); 
 
-        // Feedback visual discreto (um ponto a cada 10% do progresso total)
-        if (repeticoes >= 10 && i % (repeticoes / 10) == 0) printf(".");
+        // Feedback visual discreto
+        if (repeticoes >= 10 && (i + 1) % (repeticoes / 10) == 0) printf(".");
+    }
+
+    // EXIBIÇÃO DO LOG INDIVIDUAL (Fora do laço de medição)
+    printf("\n\n--- LOG DE EXECUCOES INDIVIDUAIS ---");
+    for (int i = 0; i < repeticoes; i++) {
+        printf("\nTeste %d: %.2f us | Bruto: %.10f s", i + 1, historico[i], historico[i] / 1000000.0);
     }
 
     double media = tempo_total / repeticoes;
     exibirTempoBonito(media);
 
+    free(historico);
     return 0;
 }

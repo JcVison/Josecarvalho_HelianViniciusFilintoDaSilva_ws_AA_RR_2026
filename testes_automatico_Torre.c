@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <windows.h> 
 
 /* FUNÇÃO RECURSIVA TORRE DE HANOI */
@@ -30,30 +31,51 @@ int main() {
 
     QueryPerformanceFrequency(&frequencia);
 
-    printf("--- MODO DE TESTES AUTOMATICOS ---\n");
+    printf("--- MODO DE TESTES AUTOMATICOS (TORRE DE HANOI) ---\n");
     printf("Digite o numero de discos: ");
     scanf("%d", &n);
     printf("Quantas vezes deseja repetir o teste? ");
     scanf("%d", &repeticoes);
 
-    printf("\nProcessando testes... Aguarde.\n");
+    // ALOCAÇÃO DO VETOR DE HISTÓRICO
+    // Guardamos os tempos aqui para não usar printf dentro do loop
+    double *historico = (double *)malloc(repeticoes * sizeof(double));
+    if (historico == NULL) {
+        printf("Erro ao alocar memoria para o historico.\n");
+        return 1;
+    }
 
-    for (int i = 1; i <= repeticoes; i++) {
-        // Medição pura, sem interrupções de printf
+    printf("\nProcessando testes silenciosamente... Aguarde.\n");
+
+    for (int i = 0; i < repeticoes; i++) {
+        // Medição pura
         QueryPerformanceCounter(&t1);
         torreHanoi(n, 'A', 'C', 'B');
         QueryPerformanceCounter(&t2);
 
         double tempo_micro = (double)(t2.QuadPart - t1.QuadPart) * 1000000.0 / frequencia.QuadPart;
+        
+        // Armazena o tempo individual no vetor
+        historico[i] = tempo_micro;
         tempo_total += tempo_micro;
 
-        // Feedback visual simples para não parecer que o programa travou em testes longos
-        if (i % 10 == 0) printf("."); 
+        // Feedback visual discreto a cada 10% do progresso
+        if (repeticoes >= 10 && (i + 1) % (repeticoes / 10) == 0) printf("."); 
+    }
+
+    // EXIBIÇÃO DOS RESULTADOS INDIVIDUAIS
+    // Isso acontece APÓS todos os testes terminarem
+    printf("\n\n--- LOG DE EXECUCOES INDIVIDUAIS ---");
+    for (int i = 0; i < repeticoes; i++) {
+        printf("\nTeste %d: %.2f us | Bruto: %.10f s", i + 1, historico[i], historico[i] / 1000000.0);
     }
 
     double media = tempo_total / repeticoes;
     
     exibirTempoBonito(media);
+
+    // LIBERAÇÃO DA MEMÓRIA
+    free(historico);
 
     return 0;
 }
