@@ -8,6 +8,7 @@
 Este trabalho apresenta um estudo experimental sobre o algoritmo da Torre de Hanói, com foco na análise de desempenho computacional. A partir de diferentes implementações, busca-se observar como decisões de programação influenciam o tempo de execução de um mesmo problema clássico da computação.
 
 Para isso, foram realizados testes controlados e repetidos, permitindo a coleta e organização de dados de forma sistemática. Os resultados obtidos servem como base para comparações e discussões ao longo do trabalho, contribuindo para a compreensão prática do impacto da implementação na eficiência de algoritmos
+
 ---
 
 ## 2. Desenvolvimento dos Algoritmos 
