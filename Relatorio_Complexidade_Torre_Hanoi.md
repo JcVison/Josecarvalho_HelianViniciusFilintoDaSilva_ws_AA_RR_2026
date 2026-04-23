@@ -1,36 +1,30 @@
 # Relatório de Análise de Complexidade Computacional
-## Comparação entre Torre de Hanói O(2ⁿ) e Torre de Hanói Melhorada com Merge Sort O(n log n)
+## Comparação entre Torre de Hanói Iterativa e Torre de Hanói Recursiva
 
 ---
 
 ## 1. Introdução
 
-Este relatório apresenta uma análise experimental de complexidade computacional comparando dois algoritmos com comportamentos assintóticos distintos: a Torre de Hanói tradicional, de complexidade exponencial O(2ⁿ), e uma versão melhorada da Torre de Hanói baseada no algoritmo Merge Sort, de complexidade O(n log n).
+Este trabalho apresenta um estudo experimental sobre o algoritmo da Torre de Hanói, com foco na análise de desempenho computacional. A partir de diferentes implementações, busca-se observar como decisões de programação influenciam o tempo de execução de um mesmo problema clássico da computação.
 
-O objetivo é demonstrar, por meio de testes práticos, como o crescimento do tamanho da entrada (n) impacta diretamente o tempo de execução, validando empiricamente conceitos teóricos de exponencialidade, eficiência e escalabilidade algorítmica.
-
+Para isso, foram realizados testes controlados e repetidos, permitindo a coleta e organização de dados de forma sistemática. Os resultados obtidos servem como base para comparações e discussões ao longo do trabalho, contribuindo para a compreensão prática do impacto da implementação na eficiência de algoritmos
 ---
 
-## 2. Desenvolvimento dos Algoritmos e Estratégia Experimental
+## 2. Desenvolvimento dos Algoritmos 
 
 ### 2.1 Algoritmos Implementados
-Torre de Hanói Tradicional (Manual)
-Implementação clássica recursiva, utilizada como base de comparação.
 
-Torre de Hanói Tradicional Automática
-Versão criada para executar o algoritmo tradicional repetidas vezes, medir tempos médios e reduzir interferências externas.
+- Torre de Hanói Recursiva
+Implementação baseada no paradigma de "Dividir e Conquistar", seguindo estritamente a recorrência matemática do problema. Embora seja o código mais elegante e fácil de ler, ela é a "opção lenta" devido ao overhead de chamadas de função. Cada movimento exige que o processador manipule a pilha de execução (stack), salvando contextos de memória bilhões de vezes, o que gera um custo computacional adicional perceptível em grandes valores de n.
 
-Torre de Hanói Melhorada (Manual)
-Implementação otimizada desenvolvida manualmente, utilizando Merge Sort como estratégia central de processamento.
+- Torre de Hanói Iterativa
+Versão otimizada que substitui as chamadas recursivas por laços de repetição (loops) e lógica binária/bitwise. Esta implementação é a "opção rápida" porque trabalha de forma contínua, evitando o peso da pilha do sistema. Mesmo mantendo a mesma complexidade teórica, ela demonstra uma eficiência de hardware superior, resultando em tempos de execução significativamente menores e maior estabilidade térmica para o processador.
 
-Torre de Hanói Melhorada Automática
-Versão criada para executar a implementação melhorada de forma repetida, calcular tempos médios e garantir maior confiabilidade nos testes.
 ---
 
-### 2.2 Criação do Algoritmo Automático
+### 3 Criação do Algoritmo Automático
 
-O algoritmo automático foi desenvolvido para executar múltiplas repetições do algoritmo e medir o tempo de execução de cada repetição.
-
+Inicialmente, foi desenvolvido um algoritmo capaz de executar a solução da Torre de Hanói em uma única execução, com o objetivo de validar a corretude da lógica implementada e o funcionamento básico do código. Em uma etapa posterior, essa implementação foi estendida por meio da adição de uma função de controle responsável por repetir automaticamente a execução do algoritmo quantas vezes o usuário desejar, possibilitando a coleta sistemática dos tempos de execução. Essa abordagem permitiu a realização de experimentos mais consistentes, reduzindo a influência de variações pontuais e viabilizando uma análise de desempenho mais confiável.
 
 ---
 
@@ -42,62 +36,53 @@ Antes da execução em larga escala, o algoritmo automático foi validado compar
 
 ## 4. Resultados Experimentais
 
-### 4.1 Torre de Hanói Tradicional – O(2ⁿ)
-|  Discos (n) | T1   | T2     | T3     | T4     | T5     | T6     | T7     | T8     | T9     | T10      | Média    |
-| ----------: | -----| -----  | -----  | -----  | -----  | -----  | -----  | -----  | -----  | ------   | ---------|
-|   10 (μs) | 5.00   | 4.50   | 3.80   | 3.80   | 3.80   | 3.80   | 3.60   | 3.70   | 3.70   | 3.60     | 3.93 μs  |
-|    20 (s) | 0.0035 | 0.0032 | 0.0026 | 0.0040 | 0.0037 | 0.0030 | 0.0026 | 0.0026 | 0.0027 | 0.0027   | 0.0031 s |
-|    25 (s) | 0.09   | 0.10   | 0.09   | 0.14   | 0.09   | 0.09   | 0.09   | 0.09   | 0.09   | 0.10     | 0.10 s   |
-|    30 (s) | 2.71   | 2.75   | 2.73   | 2.73   | 2.71   | 2.72   | 2.73   | 2.71   | 2.72   | 2.73     | 2.73 s   |
-|    32 (s) | 10.85  | 10.85  | 10.86  | 10.85  | 10.86  | 10.86  | 10.91  | 10.92  | 10.85  | 10.86    | 10.87 s  |
-|    35 (s) | 87.41  | 87.59  | 87.82  | 87.59  | 87.57  | 87.62  | 87.57  | 87.38  | 87.41  | 87.31    | 87.53 s  |
+### 4.1 Torre de Hanói Recursiva – O(2ⁿ)
+## Resultados – Torre de Hanói (Recursiva)
 
-
----
-
-### 4.2 Torre de Hanói Melhorada – Merge Sort O(n log n)
-
-| Elementos (n) | T1   | T2   | T3  | T4   | T5   | T6   | T7   | T8   | T9   | T10  | Média        |
-| ------------: | ---- | ---- | --- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ------------ |
-|          10   | 13.2 | 6.3  | 2.5 | 3.6  | 2.8  | 2.4  | 2.7  | 2.3  | 2.4  | 3.3  |   4.15 μs    |
-|          20   | 24.5 | 5.7  | 5.3 | 5.2  | 17.3 | 25.4 | 6.4  | 6.3  | 7.1  | 6.0  |   10.92 μs   |
-|          25   | 21.0 | 7.6  | 7.2 | 8.8  | 6.7  | 8.6  | 7.7  | 7.3  | 6.4  | 7.6  |   8.89 μs    |
-|          30   | 36.3 | 8.9  | 8.5 | 11.2 | 8.7  | 9.4  | 9.0  | 11.0 | 9.6  | 8.5  |   12.11 μs   |
-|          32   | 27.1 | 11.4 | 8.7 | 8.4  | 9.5  | 15.1 | 8.7  | 10.3 | 13.8 | 14.9 |   12.79 μs   |
-|          35   | 23.1 | 9.8  | 9.3 | 9.2  | 10.1 | 11.7 | 10.3 | 9.2  | 11.5 | 9.4  |   11.36 μs   |
+| Discos (n) | Repetições |   Média (µs) | Tempo Médio (s) |
+| ---------: | ---------: | -----------: | --------------: |
+|         10 |         20 |        11.02 |        0.000011 |
+|         15 |         20 |       348.55 |        0.000349 |
+|         20 |         20 |     10942.20 |        0.010942 |
+|         25 |         20 |    283182.53 |        0.283183 |
+|         30 |         20 |   7901740.90 |        7.901741 |
+|         35 |         20 | 182453095.49 |      182.453095 |
 
 
 
 ---
+
+### 4.2 Torre de Hanói Iterativa
+| Discos (n) | Repetições |   Média (µs) | Tempo Médio (s) |
+| ---------: | ---------: | -----------: | --------------: |
+|         10 |         20 |         7.08 |        0.000007 |
+|         15 |         20 |       187.65 |        0.000188 |
+|         20 |         20 |      7293.24 |        0.007293 |
+|         25 |         20 |    186929.96 |        0.186930 |
+|         30 |         20 |   5103828.74 |        5.103829 |
+|         35 |         20 | 135874776.01 |      135.874776 |
+
 
 ## 5. Análise Comparativa
 
 ### 5.1 Comparação Final
-| Entrada (Hanói / Merge) | Torre de Hanói – O(2ⁿ) (s) | Merge Sort – O(n log n) (s) |
-| ----------------------: | -------------------------: | --------------------------: |
-|               10 / 10   |                 0.00000393 |                  0.00000415 |
-|               20 / 20   |                     0.0031 |                  0.00001092 |
-|               25 / 25   |                       0.10 |                  0.00000889 |
-|               30 / 30   |                       2.73 |                  0.00001211 |
-|               32 / 32   |                      10.87 |                  0.00001279 |
-|               35 / 35   |                      87.53 |                  0.00001136 |
-
-
+| Discos (n) | Recursiva – Média (µs) |  Recursiva (s) | Iterativa – Média (µs) |  Iterativa (s) |     Ganho da Iterativa |
+| ---------: | ---------------------: | -------------: | ---------------------: | -------------: | ---------------------: |
+|         10 |               11.02 µs |   0.00001103 s |                7.08 µs |   0.00000708 s |   ~35.8% mais rápida   |
+|         15 |              348.55 µs |   0.00034856 s |              187.65 µs |   0.00018765 s |   ~46.2% mais rápida   |
+|         20 |           10,942.20 µs |   0.01094221 s |            7,293.24 µs |   0.00729324 s |   ~33.4% mais rápida   |
+|         25 |          283,182.53 µs |   0.28318254 s |          186,929.96 µs |   0.18692996 s |   ~33.98% mais rápida  |
+|         30 |        7,901,740.90 µs |   7.90174090 s |        5,103,828.74 µs |   5.10382874 s |   ~35.4% mais rápida   |
+|         35 |      182,453,095.49 µs | 182.45309550 s |      135,874,776.01 µs | 135.87477601 s |   ~25.5% mais rápida   |
 
 ---
 
 ### 5.2 Considerações de Hardware
 
-As variações entre os tempos de execução observadas nos testes decorrem principalmente do escalonamento do sistema operacional, do uso dinâmico do cache da CPU e, em execuções mais longas, de possíveis efeitos de throttling térmico. Tais variações são pequenas e não afetam a análise geral, sendo suavizadas pelo uso da média dos tempos medidos.
-
----
-
-### 5.3 Limitações de Memória
-
-Embora o algoritmo baseado em Merge Sort seu desempenho pode ser limitado pela disponibilidade de memória RAM em cenários com entradas muito grandes.
+As variações observadas nos tempos de execução estão relacionadas principalmente ao escalonamento do sistema operacional, ao uso dinâmico dos níveis de cache da CPU e, em execuções mais longas, a eventuais efeitos de throttling térmico. Tais flutuações são inerentes ao ambiente de execução e foram mitigadas pela realização de múltiplas repetições e pelo uso da média aritmética, não comprometendo a confiabilidade da análise comparativa.
 
 ---
 
 ## 6. Conclusão
 
-Os experimentos confirmam que a Torre de Hanói tradicional é inviável para grandes valores de n devido ao crescimento exponencial do tempo de execução. Em contraste, a abordagem baseada em Merge Sort apresenta alta eficiência e boa escalabilidade, evidenciando a importância da escolha adequada de algoritmos considerando tanto tempo quanto espaço computacional.
+Os resultados experimentais indicam que, embora as implementações recursiva e iterativa da Torre de Hanói compartilhem a mesma complexidade assintótica O(2ⁿ), a versão iterativa apresenta desempenho consistentemente superior. Essa vantagem decorre da eliminação do overhead associado às chamadas recursivas e ao uso intensivo da pilha de execução. Contudo, o crescimento exponencial do algoritmo permanece dominante, tornando ambas as abordagens inviáveis para valores elevados de n e evidenciando que otimizações de implementação afetam apenas o tempo absoluto, não o limite teórico do problema.
