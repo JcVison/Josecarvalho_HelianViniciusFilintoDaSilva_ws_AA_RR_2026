@@ -60,10 +60,8 @@ A organização do projeto foi definida para separar os códigos principais, os 
 Aluno_ws_AA_RR_2025/
 │
 ├── codigos/
-│   ├── torre_hanoi.c
-│   ├── testes_automaticos_torre_hanoi.c
-│   ├── merge_sort_comparacao.c
-│   └── testes_automaticos_merge_sort.c
+│   ├── Torre_Iterativa.c
+│   ├── Torre_Recursiva.c
 │
 ├── relatorio/
 │   └── relatorio_seminario_torre_hanoi.pdf
