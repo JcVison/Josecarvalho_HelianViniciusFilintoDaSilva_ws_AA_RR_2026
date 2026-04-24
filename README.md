@@ -13,7 +13,7 @@ De acordo com a proposta do trabalho, o seminário deve apresentar a análise de
 - **Disciplina:** Análise de Algoritmos
 - **Professor:** Prof. Dr. Herbert Oliveira Rocha
 - **Tipo de atividade:** Seminário
-- **Prazo de entrega:** 12/06/2025
+- **Prazo de entrega:** 28/04/2026
 - **Formato da apresentação:** Slide
 - **Tempo de apresentação:** 10 minutos por equipe 
 
@@ -36,6 +36,17 @@ A Torre de Hanói é um problema clássico da computação e da matemática, mui
 Este trabalho tem como objetivo analisar o algoritmo recursivo da Torre de Hanói, observando seu comportamento assintótico, sua função de custo e seu desempenho prático por meio de testes automatizados em linguagem C.
 
 Além disso, para atender ao requisito da atividade, também foi utilizado um algoritmo mais eficiente para comparação de complexidade: o **Merge Sort**, cuja complexidade é inferior à da Torre de Hanói em termos assintóticos. 
+
+---
+
+## Análise de Complexidade
+
+A Torre de Hanói possui uma função de recorrência baseada na necessidade de mover `n - 1` discos duas vezes, além do movimento do maior disco.
+
+A recorrência pode ser representada por:
+
+```text
+T(n) = 2T(n - 1) + 1
 
 ---
 
