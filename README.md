@@ -39,17 +39,6 @@ Além disso, para atender ao requisito da atividade, também foi utilizado um al
 
 ---
 
-## Análise de Complexidade
-
-A Torre de Hanói possui uma função de recorrência baseada na necessidade de mover `n - 1` discos duas vezes, além do movimento do maior disco.
-
-A recorrência pode ser representada por:
-
-```text
-T(n) = 2T(n - 1) + 1
-
----
-
 ## Equipe
 
 ### Responsável pelos testes e código
