@@ -95,17 +95,17 @@ Supomos que o enunciado é verdadeiro para um elemento genérico n−1. Ou seja,
 3. Passo Indutivo
 Agora, devemos provar que, se a hipótese vale para n−1, ela obrigatoriamente vale para o próximo elemento n. Utilizamos a fórmula da recorrência e substituímos os valores:
 
-1. Partimos da recorrência conhecida: <img width="261" height="41" alt="image" src="https://github.com/user-attachments/assets/b26a3c73-1672-4cb1-9235-91de5383703d" />
-
-2. Substituímos T(n−1) pela nossa Hipótese de Indução (J): <img width="256" height="44" alt="image" src="https://github.com/user-attachments/assets/c16ce6e9-d2b5-4efa-9cb7-ea62001e464d" />
-
-3. Aplicamos o valor da fórmula J para n−1: <img width="267" height="41" alt="image" src="https://github.com/user-attachments/assets/bb002542-a2f7-4cbc-ab35-19a0bac6cdc2" />
-
-4. Realizamos a distribuição do multiplicador: <img width="247" height="42" alt="image" src="https://github.com/user-attachments/assets/7163a2ca-ad35-4cdb-8657-d66e7d1539d8" />
-
-5. Simplificamos os termos constantes (−2+1=−1): <img width="224" height="33" alt="image" src="https://github.com/user-attachments/assets/298cd763-8adb-4a84-a192-d88f3836e92a" />
-
-6. Aplicamos a propriedade de potências de mesma base: <img width="156" height="31" alt="image" src="https://github.com/user-attachments/assets/c06463c3-803e-40d0-80c5-dc19bfa6eb33" />
+  1. Partimos da recorrência conhecida: <img width="261" height="41" alt="image" src="https://github.com/user-attachments/assets/b26a3c73-1672-4cb1-9235-91de5383703d" />
+  
+  2. Substituímos T(n−1) pela nossa Hipótese de Indução (J): <img width="256" height="44" alt="image" src="https://github.com/user-attachments/assets/c16ce6e9-d2b5-4efa-9cb7-ea62001e464d" />
+  
+  3. Aplicamos o valor da fórmula J para n−1: <img width="267" height="41" alt="image" src="https://github.com/user-attachments/assets/bb002542-a2f7-4cbc-ab35-19a0bac6cdc2" />
+  
+  4. Realizamos a distribuição do multiplicador: <img width="247" height="42" alt="image" src="https://github.com/user-attachments/assets/7163a2ca-ad35-4cdb-8657-d66e7d1539d8" />
+  
+  5. Simplificamos os termos constantes (−2+1=−1): <img width="224" height="33" alt="image" src="https://github.com/user-attachments/assets/298cd763-8adb-4a84-a192-d88f3836e92a" />
+  
+  6. Aplicamos a propriedade de potências de mesma base: <img width="156" height="31" alt="image" src="https://github.com/user-attachments/assets/c06463c3-803e-40d0-80c5-dc19bfa6eb33" />
 
 ## 2. Desenvolvimento dos Algoritmos 
 
