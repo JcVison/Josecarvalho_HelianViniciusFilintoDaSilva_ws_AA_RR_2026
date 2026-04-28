@@ -77,6 +77,36 @@ Logo, o resultado da somatória é:
 5. Resultado Final da Recorrência
 <img width="171" height="57" alt="image" src="https://github.com/user-attachments/assets/9f6c2bdf-598f-434f-9145-3aff33dd0e92" />
 
+## 1.5 Prova por Indução Matemática: Torre de Hanói
+
+A Indução Matemática é um método de prova utilizado para demonstrar a verdade de um número infinito de proposições. Funciona como um "efeito dominó": se conseguirmos derrubar a primeira peça (Base) e provarmos que a queda de uma peça derruba a próxima (Passo Indutivo), todas as peças cairão.
+Objetivo da Prova
+
+Queremos provar que a solução fechada <img width="153" height="36" alt="image" src="https://github.com/user-attachments/assets/1c49a199-7351-4d74-85ba-230674727acb" /> é verdadeira para todos os números naturais n, sabendo que a relação de recorrência do problema é: <img width="238" height="39" alt="image" src="https://github.com/user-attachments/assets/74ca9c24-5de5-42a2-add2-c45fe1f74ae7" />
+
+1. Base da Indução
+O primeiro passo consiste em mostrar que o enunciado vale para os primeiros casos (geralmente n=1).
+<img width="496" height="124" alt="image" src="https://github.com/user-attachments/assets/4248d9e1-137f-4fa5-8591-ae9bca53111e" />
+Nesse caso, ao substituir o vaalor de n por 1 e 2 tanto no t(n) quanto no j(n) o resultados foram iguais 
+
+2. Hipótese de Indução
+Supomos que o enunciado é verdadeiro para um elemento genérico n−1. Ou seja, assumimos como verdade que: <img width="337" height="45" alt="image" src="https://github.com/user-attachments/assets/48089001-41cc-41bf-b33e-3dfe5a9dd6da" />
+
+3. Passo Indutivo
+Agora, devemos provar que, se a hipótese vale para n−1, ela obrigatoriamente vale para o próximo elemento n. Utilizamos a fórmula da recorrência e substituímos os valores:
+
+1. Partimos da recorrência conhecida: <img width="261" height="41" alt="image" src="https://github.com/user-attachments/assets/b26a3c73-1672-4cb1-9235-91de5383703d" />
+
+2. Substituímos T(n−1) pela nossa Hipótese de Indução (J): <img width="256" height="44" alt="image" src="https://github.com/user-attachments/assets/c16ce6e9-d2b5-4efa-9cb7-ea62001e464d" />
+
+3. Aplicamos o valor da fórmula J para n−1: <img width="267" height="41" alt="image" src="https://github.com/user-attachments/assets/bb002542-a2f7-4cbc-ab35-19a0bac6cdc2" />
+
+4. Realizamos a distribuição do multiplicador: <img width="247" height="42" alt="image" src="https://github.com/user-attachments/assets/7163a2ca-ad35-4cdb-8657-d66e7d1539d8" />
+
+5. Simplificamos os termos constantes (−2+1=−1): <img width="224" height="33" alt="image" src="https://github.com/user-attachments/assets/298cd763-8adb-4a84-a192-d88f3836e92a" />
+
+6. Aplicamos a propriedade de potências de mesma base: <img width="156" height="31" alt="image" src="https://github.com/user-attachments/assets/c06463c3-803e-40d0-80c5-dc19bfa6eb33" />
+
 ## 2. Desenvolvimento dos Algoritmos 
 
 ### 2.1 Algoritmos Implementados
