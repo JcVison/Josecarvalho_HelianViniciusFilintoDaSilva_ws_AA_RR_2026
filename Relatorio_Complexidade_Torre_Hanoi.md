@@ -1,13 +1,10 @@
-# Relatório de Análise de Complexidade Computacional
-## Comparação entre Torre de Hanói Iterativa e Torre de Hanói Recursiva
+1. Introdução
 
----
+Este relatório foi desenvolvido como parte da atividade de seminário da disciplina Análise de Algoritmos, ministrada pelo Prof. Dr. Herbert Oliveira Rocha, na Universidade Federal de Roraima (UFRR). O trabalho tem como objetivo apresentar um estudo experimental sobre o algoritmo da Torre de Hanói, um problema clássico amplamente utilizado no ensino de recursão e análise de complexidade computacional.
 
-## 1. Introdução
+O foco principal da análise está no desempenho computacional do algoritmo, considerando diferentes implementações. Busca-se investigar como decisões de programação e estratégias de implementação podem influenciar diretamente o tempo de execução, mesmo quando o problema resolvido permanece o mesmo.
 
-Este trabalho apresenta um estudo experimental sobre o algoritmo da Torre de Hanói, com foco na análise de desempenho computacional. A partir de diferentes implementações, busca-se observar como decisões de programação influenciam o tempo de execução de um mesmo problema clássico da computação.
-
-Para isso, foram realizados testes controlados e repetidos, permitindo a coleta e organização de dados de forma sistemática. Os resultados obtidos servem como base para comparações e discussões ao longo do trabalho, contribuindo para a compreensão prática do impacto da implementação na eficiência de algoritmos
+Para atingir esse objetivo, foram realizados testes controlados e repetidos, possibilitando a coleta sistemática de dados de execução. Os resultados obtidos são organizados e analisados ao longo do relatório, servindo de base para comparações e discussões que contribuem para a compreensão prática do impacto da implementação na eficiência de algoritmos.
 
 ## 1.1 O que é a Torre de Hanói?
 
